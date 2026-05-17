@@ -59,6 +59,8 @@ def predict(image):
     
     with torch.no_grad():
         outputs = model(img)
+        temperature = 10.0
+        outputs = outputs / temperature
         probs = torch.softmax(outputs, dim=1)
         confidence, predicted = torch.max(probs, 1)
     
