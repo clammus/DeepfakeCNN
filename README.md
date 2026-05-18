@@ -41,13 +41,22 @@ For each parameter, at least 6 different values were tested and results were com
 | pool_kernel_size | 4 |
 
 ## Results
-        Metric  Baseline  Best Config
- Test Accuracy    0.7989       0.8809
-Fake Precision    0.8763       0.8260
-   Fake Recall    0.6933       0.9633
-Real Precision    0.7487       0.9566
-   Real Recall    0.9032       0.7994
-      F1 Macro    0.7964       0.8802
+
+### Baseline vs Best Configuration
+
+| Metric | Baseline | Best Config |
+|---|---|---|
+| Test Accuracy | 79.89% | 81.78% |
+| Fake Precision | 0.88 | 0.74 |
+| Fake Recall | 0.69 | 0.97 |
+| Real Precision | 0.75 | 0.96 |
+| Real Recall | 0.90 | 0.66 |
+| F1 Macro | 0.80 | 0.81 |
+
+### Key Findings
+- Best config significantly improved Fake detection (recall: 0.69 → 0.97)
+- Model is conservative — tends to predict Fake more often
+- Vanilla CNN has inherent limitations for deepfake detection in the frequency domain
 
 ## Interface
 Built with Gradio. Run locally:
