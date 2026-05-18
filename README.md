@@ -12,6 +12,23 @@ This project trains a deep CNN to classify face images as Real or Fake using the
 - Dropout (0.5) for regularization
 - Binary output: Real / Fake
 
+## Hyperparameter Experiments
+11 hyperparameters were tested using controlled experiment methodology — only one parameter was changed at a time while all others remained fixed. After each experiment, the best-performing value was updated in the baseline configuration and used in all subsequent experiments:
+
+- conv_kernel_size
+- conv_dropout
+- activation_fn
+- batch_size
+- optimizer_type
+- num_conv_layers
+- fc_hidden_units
+- pool_kernel_size
+- pool_stride
+- fc_dropout
+- num_epochs
+
+For each parameter, at least 6 different values were tested and results were compared using validation accuracy and loss curves.
+
 ## Best Configuration
 | Hyperparameter | Value |
 |---|---|
@@ -24,10 +41,13 @@ This project trains a deep CNN to classify face images as Real or Fake using the
 | pool_kernel_size | 4 |
 
 ## Results
-| Model | Test Accuracy |
-|---|---|
-| Baseline CNN | 80.6% |
-| Best Config CNN | 81.8% |
+        Metric  Baseline  Best Config
+ Test Accuracy    0.7989       0.8809
+Fake Precision    0.8763       0.8260
+   Fake Recall    0.6933       0.9633
+Real Precision    0.7487       0.9566
+   Real Recall    0.9032       0.7994
+      F1 Macro    0.7964       0.8802
 
 ## Interface
 Built with Gradio. Run locally:
